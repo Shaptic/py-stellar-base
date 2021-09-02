@@ -60,9 +60,9 @@ class SetTrustLineFlags(Operation):
         super().__init__(source)
         check_ed25519_public_key(trustor)
         self.trustor: str = trustor
-        self.asset = asset
-        self.clear_flags = clear_flags
-        self.set_flags = set_flags
+        self.asset: Asset = asset
+        self.clear_flags: TrustLineFlags = clear_flags
+        self.set_flags: TrustLineFlags = set_flags
 
     def _to_operation_body(self) -> stellar_xdr.OperationBody:
         trustor = Keypair.from_public_key(self.trustor).xdr_account_id()

@@ -37,7 +37,7 @@ class ChangeTrust(Operation):
     def __init__(
         self,
         asset: Union[Asset, LiquidityPoolAsset],
-        limit: Union[str, Decimal] = None,
+        limit: Union[str, Decimal] = _DEFAULT_LIMIT,
         source: Optional[Union[MuxedAccount, str]] = None,
     ) -> None:
         super().__init__(source)
@@ -45,8 +45,9 @@ class ChangeTrust(Operation):
         if (
             limit is None
         ):  # We don't need this if the user can send the value with correct type.
-            self.limit: Union[str, Decimal] = self._DEFAULT_LIMIT
+            self.limit: str = self._DEFAULT_LIMIT
         else:
+            limit = str(limit)
             check_amount(limit)
             self.limit = limit
 

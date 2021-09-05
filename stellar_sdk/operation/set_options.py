@@ -130,7 +130,9 @@ class SetOptions(Operation):
             else None
         )
         clear_flags = (
-            None if self.clear_flags is None else stellar_xdr.Uint32(self.clear_flags.value)
+            None
+            if self.clear_flags is None
+            else stellar_xdr.Uint32(self.clear_flags.value)
         )
         set_flags = (
             None if self.set_flags is None else stellar_xdr.Uint32(self.set_flags.value)

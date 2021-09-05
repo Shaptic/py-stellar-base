@@ -32,6 +32,10 @@ class Price:
         d = best_r["d"]
         return cls(n, d)
 
+    @property
+    def real_number_price(self) -> str:
+        return ""
+
     def to_xdr_object(self) -> stellar_xdr.Price:
         """Returns the xdr object for this price object.
 

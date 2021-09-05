@@ -26,7 +26,10 @@ class TestBaseCallBuilder:
         ] == "py-stellar-sdk/{}/AiohttpClient".format(__version__)
         assert resp["headers"]["X-Client-Name"] == "py-stellar-sdk"
         assert resp["headers"]["X-Client-Version"] == __version__
-        assert resp["url"] == "https://httpbin.overcat.me/get?cursor=89777&order=asc&limit=25"
+        assert (
+            resp["url"]
+            == "https://httpbin.overcat.me/get?cursor=89777&order=asc&limit=25"
+        )
 
     def test_get_data_sync(self):
         url = "https://httpbin.overcat.me/get"
@@ -40,7 +43,10 @@ class TestBaseCallBuilder:
         ] == "py-stellar-sdk/{}/RequestsClient".format(__version__)
         assert resp["headers"]["X-Client-Name"] == "py-stellar-sdk"
         assert resp["headers"]["X-Client-Version"] == __version__
-        assert resp["url"] == "https://httpbin.overcat.me/get?limit=10&cursor=10086&order=desc"
+        assert (
+            resp["url"]
+            == "https://httpbin.overcat.me/get?limit=10&cursor=10086&order=desc"
+        )
 
     @pytest.mark.slow
     @pytest.mark.asyncio
